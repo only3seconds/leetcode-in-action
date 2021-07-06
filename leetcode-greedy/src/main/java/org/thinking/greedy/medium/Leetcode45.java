@@ -1,21 +1,7 @@
-# leetcode-in-action
-LeetCode代码仓库
+package org.thinking.greedy.medium;
 
-## 项目包结构
+import org.thinking.common.ConsoleOutput;
 
-项目中每个子项目都是一个算法集合。
-
-## 规范 
-
-每个LeetCode题目都以LeetcodeXXX取名。
-
-子项目的包名称和算法集合有关。比如org.thinking.array包，该包根据题目的难易程度分为: easy、medium和hard
-
-项目注释分为四个维度：Title、题目、思路和类似题型
-
-##### 示例
-
-```java
 /**
  * Title: Jump Game II
  * <p>
@@ -31,12 +17,23 @@ LeetCode代码仓库
  * <p>
  * 类似题型: Jump Game
  *
- * @author thinking_ppp 2021/7/6
+ * @author thinking_fioa 2021/3/14
  */
 public class Leetcode45 {
 
   public int jump(int[] nums) {
     int result = 0;
+    int maxJump = nums[0];
+    int i = 1;
+    while (i <= maxJump && i < nums.length) {
+      int localMaxJump = maxJump;
+      while (i <= maxJump && i < nums.length) {
+        localMaxJump = Math.max(localMaxJump, nums[i] + i);
+        i++;
+      }
+      result++;
+      maxJump = localMaxJump;
+    }
     return result;
   }
 
@@ -49,4 +46,3 @@ public class Leetcode45 {
     ConsoleOutput.printf(leetcode45.jump(nums));
   }
 }
-```
