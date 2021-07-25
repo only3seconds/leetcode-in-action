@@ -1,6 +1,9 @@
 package org.thinking.array.easy;
 
 /**
+ * 暴力解法会超时
+ * 滑动窗口解法
+ * 对于求和的题目，常常借助辅助数组，并且辅助数组比原数组多一位，首位赋值为0，方便统一计算。
  * @author thinking-ppp 2021/7/22
  */
 public class Leetcode643 {
